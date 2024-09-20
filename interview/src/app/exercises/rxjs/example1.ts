@@ -2,7 +2,7 @@
 // Book source B
 
 import { Observable } from "rxjs";
-import { Book, Person } from "../../models/book";
+import { Book, Author } from "../../models/book";
 
 /**
  * - combine sources
@@ -20,4 +20,4 @@ function combineBookSources(...sources: Observable<Book[]>[]): Observable<Book[]
  * Only emit every 2s a list of the authors that came in bufferTime
  * @param books
  */
-export function getAuthors(books: Observable<Book>): Observable<Person[]> { return null }
+export function getAuthors(books: Observable<Book>): Observable<Author[]> { return null }

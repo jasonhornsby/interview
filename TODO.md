@@ -1,0 +1,6 @@
+- See if we can set up dependencies automatically, like in demo app (stackblitz)
+- Migrate app to Jest instead of karma
+- Split models into different files, add docstrings
+- Add tests for TS and RXJS examples
+- Implement the BookDetail component
+  - Mock Book DS

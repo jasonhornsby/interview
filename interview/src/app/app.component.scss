@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+
+  .list {
+    flex: 1;
+  }
+
+  .sidebar {
+    flex-basis: 400px;
+    flex-shrink: 0;
+    flex-grow: 0;
+  }
+}

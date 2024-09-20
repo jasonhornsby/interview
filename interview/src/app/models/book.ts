@@ -11,8 +11,9 @@ export enum BookGenre {
 export type Book = {
   name: string,
   pages: Page[],
-  author: Person,
+  author: Author,
   genres: BookGenre[],
+  source: 'library' | 'store',
   dateWritten: Date,
   datePublished: Date,
 }
@@ -22,7 +23,7 @@ export type Page = {
   pageNumber: number,
 }
 
-export type Person = {
+export type Author = {
   name: string,
   address: string,
   age: number,
