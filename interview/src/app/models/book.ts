@@ -9,6 +9,7 @@ export enum BookGenre {
 }
 
 export type Book = {
+  id: string;
   name: string,
   pages: Page[],
   author: Author,
@@ -24,6 +25,7 @@ export type Page = {
 }
 
 export type Author = {
+  id: string;
   name: string,
   address: string,
   age: number,
