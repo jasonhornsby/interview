@@ -1,7 +1,4 @@
-// Book source A
-// Book source B
-
-import { Observable } from "rxjs";
+import { combineLatest, map, Observable } from "rxjs";
 import { Book, Author } from "../../models/book";
 
 /**
@@ -10,7 +7,12 @@ import { Book, Author } from "../../models/book";
  * @param sources
  */
 function combineBookSources(...sources: Observable<Book[]>[]): Observable<Book[]> {
-  return null;
+  return combineLatest(sources).pipe(
+    map((booksArray: Book[][]) => {
+      const allBooks = booksArray.flat();
+      return allBooks.sort((a, b) => a.author.name.localeCompare(b.author.name));
+    })
+  );
 }
 
 /**
@@ -20,4 +22,4 @@ function combineBookSources(...sources: Observable<Book[]>[]): Observable<Book[]
  * Only emit every 2s a list of the authors that came in bufferTime
  * @param books
  */
-export function getAuthors(books: Observable<Book>): Observable<Author[]> { return null }
+export function getAuthors(books: Observable<Book>): Observable<Author[]> { return null as any}
