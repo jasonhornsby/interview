@@ -1,12 +1,22 @@
 <mat-toolbar>
-  <span>Books store</span>
+  <span>Book database</span>
 </mat-toolbar>
 
 <div class="wrapper">
 
   <div class="list">
-    <app-book-card></app-book-card>
-
+    <mat-tab-group>
+      <mat-tab label="Store">
+        <div class="list-content">
+          <app-book-card *ngFor="let book of storeBooks" [book]="book"></app-book-card>
+        </div>
+      </mat-tab>
+      <mat-tab label="Library">
+        <div class="list-content">
+        <app-book-card *ngFor="let book of libraryBooks" [book]="book"></app-book-card>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
   </div>
 
   <mat-card class="sidebar">

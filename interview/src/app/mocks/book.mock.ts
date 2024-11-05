@@ -1,4 +1,4 @@
-import { faker } from "@faker-js/faker/.";
+import { faker } from "@faker-js/faker";
 import { Book, BookGenre } from "../models/book"
 
 export function getMockBook(override?: Partial<Book>): Book {

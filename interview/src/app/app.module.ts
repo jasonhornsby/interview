@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { MatCardModule } from "@angular/material/card";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { MatTabsModule } from "@angular/material/tabs";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -13,15 +14,16 @@ import { BookCardComponent } from './components/book-card/book-card.component';
   declarations: [
     AppComponent,
   ],
-  imports: [
-    AuthorCardComponent,
-    BookCardComponent,
-    BrowserAnimationsModule,
-    BrowserModule,
-    MatCardModule,
-    MatSnackBarModule,
-    MatToolbarModule,
-  ],
+	imports: [
+		AuthorCardComponent,
+		BookCardComponent,
+		BrowserAnimationsModule,
+		BrowserModule,
+		MatCardModule,
+		MatSnackBarModule,
+		MatToolbarModule,
+		MatTabsModule,
+	],
   providers: [],
   bootstrap: [AppComponent]
 })

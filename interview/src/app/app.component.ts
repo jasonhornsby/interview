@@ -11,7 +11,8 @@ import { BookService } from "./services/book.service";
 export class AppComponent implements OnInit{
   title = 'interview';
 
-  public books: Book[] = [];
+  public libraryBooks: Book[] = [];
+  public storeBooks: Book[] = [];
 
   constructor(private matSnackbar: MatSnackBar, private bookService: BookService) {
   }
@@ -24,7 +25,7 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
     // This could be a exercise
     // TODO: Get all the books from the library and the store
-    this.bookService.getLibraryBooks();
-    this.bookService.getStoreBooks();
+    this.bookService.getLibraryBooks().subscribe(result => this.libraryBooks = result);
+    this.bookService.getStoreBooks().subscribe(result => this.storeBooks = result);
   }
 }

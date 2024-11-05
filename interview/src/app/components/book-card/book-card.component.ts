@@ -1,13 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatCardModule } from "@angular/material/card";
+import { Book } from "../../models/book";
 
 @Component({
   selector: 'app-book-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatCardModule],
   templateUrl: './book-card.component.html',
   styleUrls: ['./book-card.component.scss']
 })
 export class BookCardComponent {
-  // TODO: We implement this
+  @Input() book: Book | undefined;
 }

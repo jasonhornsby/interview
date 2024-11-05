@@ -7,6 +7,13 @@
     flex: 1;
   }
 
+  .list-content {
+    padding: 10px;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
   .sidebar {
     flex-basis: 400px;
     flex-shrink: 0;
