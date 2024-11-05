@@ -11,9 +11,3 @@ export function publishedInYear(books: Book[], year: number): Book[] {
 export function getUniqueAuthors(books: Book[]): Author[] {
   return []
 }
-
-/**
- *
- * TODO: Type information is missing
- */
-export function createPageCounter(): unknown {}
