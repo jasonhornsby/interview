@@ -1,5 +1,6 @@
-import { combineLatest, map, Observable } from "rxjs";
+import { combineLatest, Observable, of, switchMap } from "rxjs";
 import { Book, Author } from "../../models/book";
+import { filter, map, bufferTime } from 'rxjs/operators';
 
 /**
  * - combine sources
@@ -22,4 +23,15 @@ function combineBookSources(...sources: Observable<Book[]>[]): Observable<Book[]
  * Only emit every 2s a list of the authors that came in bufferTime
  * @param books
  */
-export function getAuthors(books: Observable<Book>): Observable<Author[]> { return null as any}
+export function getAuthors(books: Observable<Book>): Observable<Author[]> {
+ return books.pipe(
+    switchMap((bookList) =>
+      of(bookList).pipe(
+        filter((book) => book.author.age < 20),
+        map((book) => book.author)
+      )
+    ),
+    bufferTime(2000),
+    filter((authors) => authors.length > 0)
+  );
+}
