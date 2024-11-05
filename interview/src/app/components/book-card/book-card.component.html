@@ -1,10 +1,64 @@
-<mat-card>
+<mat-card class="book-card">
   <mat-card-header>
-    <mat-card-title-group>
-    <mat-card-title>
-      {{ book?.name }}
-    </mat-card-title>
-    </mat-card-title-group>
-
+    <mat-card-title>{{ book.name }}</mat-card-title>
+    <mat-card-subtitle>
+      <mat-chip-listbox>
+        <mat-chip [color]="book.source === 'library' ? 'primary' : 'accent'" selected>
+          {{ book.source }}
+        </mat-chip>
+        <mat-chip *ngFor="let genre of book.genres" color="primary" selected>
+            {{ getGenreString(genre) }}
+          </mat-chip>
+      </mat-chip-listbox>
+    </mat-card-subtitle>
   </mat-card-header>
+
+  <mat-card-content>
+    <mat-list>
+          <mat-list-item>
+            <mat-icon matListItemIcon>calendar_today</mat-icon>
+            <div matListItemTitle>Written: {{ formatDate(book.dateWritten) }}</div>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-icon matListItemIcon>publish</mat-icon>
+            <div matListItemTitle>Published: {{ formatDate(book.datePublished) }}</div>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-icon matListItemIcon>book</mat-icon>
+            <div matListItemTitle>Pages: {{ book.pages.length }}</div>
+          </mat-list-item>
+        </mat-list>
+
+    <mat-accordion>
+      <!-- Author Section -->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Author Information</mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-card class="author-card">
+          <mat-card-content>
+            <mat-list>
+              <mat-list-item>
+                <mat-icon matListItemIcon>person</mat-icon>
+                <div matListItemTitle>{{ book.author.name }}</div>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon matListItemIcon>cake</mat-icon>
+                <div matListItemTitle>Age: {{ book.author.age }}</div>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon matListItemIcon>height</mat-icon>
+                <div matListItemTitle>Height: {{ book.author.height }} cm</div>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon matListItemIcon>home</mat-icon>
+                <div matListItemTitle>{{ book.author.address }}</div>
+              </mat-list-item>
+            </mat-list>
+          </mat-card-content>
+        </mat-card>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-card-content>
 </mat-card>
