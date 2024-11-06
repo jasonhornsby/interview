@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from "@angular/material/card";
 import { MatChipsModule } from "@angular/material/chips";
 import { MatExpansionModule } from "@angular/material/expansion";
@@ -10,14 +11,12 @@ import { Book, BookGenre } from "../../models/book";
 @Component({
   selector: 'app-book-card',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatChipsModule, MatExpansionModule, MatListModule, MatIconModule],
+  imports: [CommonModule, MatCardModule, MatChipsModule, MatExpansionModule, MatListModule, MatIconModule, MatButtonModule],
   templateUrl: './book-card.component.html',
   styleUrls: ['./book-card.component.scss']
 })
 export class BookCardComponent {
   @Input() book!: Book;
-
-  BookGenre = BookGenre;
 
   getGenreString(genre: BookGenre): string {
     return BookGenre[genre].charAt(0).toUpperCase() + BookGenre[genre].slice(1);
@@ -25,5 +24,9 @@ export class BookCardComponent {
 
   formatDate(date: Date): string {
     return new Date(date).toLocaleDateString();
+  }
+
+  like() {
+    throw new Error("Not implemented");
   }
 }

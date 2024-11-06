@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, tap } from "rxjs";
+import { Observable } from "rxjs";
 import { getLibraryDs, getStoreDs } from "../mocks/book.ds.mock";
 import { Book } from "../models/book";
 
@@ -11,7 +11,7 @@ export class BookService {
   storeDs = getStoreDs();
 
   public getStoreBooks(): Observable<Book[]> {
-    return this.storeDs.pipe(tap(result => console.log(result)));
+    return this.storeDs;
   }
 
   public getLibraryBooks(): Observable<Book[]> {

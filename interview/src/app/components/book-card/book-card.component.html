@@ -3,13 +3,11 @@
     <mat-card-title>{{ book.name }}</mat-card-title>
     <mat-card-subtitle>
       <mat-chip-listbox>
-        <mat-chip [color]="book.source === 'library' ? 'primary' : 'accent'" selected>
-          {{ book.source }}
-        </mat-chip>
-        <mat-chip *ngFor="let genre of book.genres" color="primary" selected>
+        <mat-chip-option *ngFor="let genre of book.genres" color="primary" selected>
             {{ getGenreString(genre) }}
-          </mat-chip>
+          </mat-chip-option>
       </mat-chip-listbox>
+      <button (click)="like()" mat-raised-button>Like</button>
     </mat-card-subtitle>
   </mat-card-header>
 
