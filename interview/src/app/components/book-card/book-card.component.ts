@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from "@angular/material/card";
 import { MatChipsModule } from "@angular/material/chips";
-import { MatExpansionModule } from "@angular/material/expansion";
 import { MatIconModule } from "@angular/material/icon";
 import { MatListModule } from "@angular/material/list";
 import { Book, BookGenre } from "../../models/book";
@@ -11,7 +10,7 @@ import { Book, BookGenre } from "../../models/book";
 @Component({
   selector: 'app-book-card',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatChipsModule, MatExpansionModule, MatListModule, MatIconModule, MatButtonModule],
+  imports: [CommonModule, MatCardModule, MatChipsModule, MatListModule, MatIconModule, MatButtonModule],
   templateUrl: './book-card.component.html',
   styleUrls: ['./book-card.component.scss']
 })

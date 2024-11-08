@@ -7,7 +7,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AuthorCardComponent } from "./components/author-card/author-card.component";
 import { BookCardComponent } from './components/book-card/book-card.component';
 
 @NgModule({
@@ -15,7 +14,6 @@ import { BookCardComponent } from './components/book-card/book-card.component';
     AppComponent,
   ],
 	imports: [
-		AuthorCardComponent,
 		BookCardComponent,
 		BrowserAnimationsModule,
 		BrowserModule,

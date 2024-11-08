@@ -26,37 +26,5 @@
             <div matListItemTitle>Pages: {{ book.pages.length }}</div>
           </mat-list-item>
         </mat-list>
-
-    <mat-accordion>
-      <!-- Author Section -->
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>Author Information</mat-panel-title>
-        </mat-expansion-panel-header>
-
-        <mat-card class="author-card">
-          <mat-card-content>
-            <mat-list>
-              <mat-list-item>
-                <mat-icon matListItemIcon>person</mat-icon>
-                <div matListItemTitle>{{ book.author.name }}</div>
-              </mat-list-item>
-              <mat-list-item>
-                <mat-icon matListItemIcon>cake</mat-icon>
-                <div matListItemTitle>Age: {{ book.author.age }}</div>
-              </mat-list-item>
-              <mat-list-item>
-                <mat-icon matListItemIcon>height</mat-icon>
-                <div matListItemTitle>Height: {{ book.author.height }} cm</div>
-              </mat-list-item>
-              <mat-list-item>
-                <mat-icon matListItemIcon>home</mat-icon>
-                <div matListItemTitle>{{ book.author.address }}</div>
-              </mat-list-item>
-            </mat-list>
-          </mat-card-content>
-        </mat-card>
-      </mat-expansion-panel>
-    </mat-accordion>
   </mat-card-content>
 </mat-card>
