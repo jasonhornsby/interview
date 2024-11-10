@@ -3,9 +3,12 @@
     <mat-card-title>{{ book.name }}</mat-card-title>
     <mat-card-subtitle>
       <mat-chip-listbox>
-        <mat-chip-option *ngFor="let genre of book.genres" color="primary" selected>
-            {{ getGenreString(genre) }}
-          </mat-chip-option>
+        <mat-chip-option
+          *ngFor="let genre of book.genres"
+          color="primary"
+          selected>
+          {{ getGenreString(genre) }}
+        </mat-chip-option>
       </mat-chip-listbox>
       <button (click)="like()" mat-raised-button>Like</button>
     </mat-card-subtitle>
@@ -13,18 +16,20 @@
 
   <mat-card-content>
     <mat-list>
-          <mat-list-item>
-            <mat-icon matListItemIcon>calendar_today</mat-icon>
-            <div matListItemTitle>Written: {{ formatDate(book.dateWritten) }}</div>
-          </mat-list-item>
-          <mat-list-item>
-            <mat-icon matListItemIcon>publish</mat-icon>
-            <div matListItemTitle>Published: {{ formatDate(book.datePublished) }}</div>
-          </mat-list-item>
-          <mat-list-item>
-            <mat-icon matListItemIcon>book</mat-icon>
-            <div matListItemTitle>Pages: {{ book.pages.length }}</div>
-          </mat-list-item>
-        </mat-list>
+      <mat-list-item>
+        <mat-icon matListItemIcon>calendar_today</mat-icon>
+        <div matListItemTitle>Written: {{ formatDate(book.dateWritten) }}</div>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon matListItemIcon>publish</mat-icon>
+        <div matListItemTitle>
+          Published: {{ formatDate(book.datePublished) }}
+        </div>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon matListItemIcon>book</mat-icon>
+        <div matListItemTitle>Pages: {{ book.pages.length }}</div>
+      </mat-list-item>
+    </mat-list>
   </mat-card-content>
 </mat-card>

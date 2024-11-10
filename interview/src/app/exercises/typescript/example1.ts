@@ -1,7 +1,7 @@
-import { Book, Author } from "../../models/book";
+import { Book, Author } from '../../models/book';
 
 export function publishedInYear(books: Book[], year: number): Book[] {
-   return books.filter(book => {
+  return books.filter(book => {
     const publishedYear = book.datePublished.getFullYear();
     return publishedYear === year;
   });

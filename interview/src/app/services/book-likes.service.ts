@@ -10,7 +10,7 @@ interface ApiResponse<T> {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BookLikesService {
   private readonly STORAGE_KEY = 'liked_books';
@@ -37,7 +37,7 @@ export class BookLikesService {
         return of({
           data: [],
           success: false,
-          error: error.message
+          error: error.message,
         });
       })
     );
@@ -61,13 +61,13 @@ export class BookLikesService {
 
       return of({
         data: book,
-        success: true
+        success: true,
       }).pipe(delay(this.MOCK_DELAY));
     } catch (error) {
       return throwError(() => ({
         data: book,
         success: false,
-        error: 'Failed to toggle book like status'
+        error: 'Failed to toggle book like status',
       }));
     }
   }
@@ -80,13 +80,13 @@ export class BookLikesService {
       localStorage.setItem(this.STORAGE_KEY, JSON.stringify(books));
       return of({
         data: true,
-        success: true
+        success: true,
       }).pipe(delay(this.MOCK_DELAY));
     } catch (error) {
       return throwError(() => ({
         data: false,
         success: false,
-        error: 'Failed to update liked books'
+        error: 'Failed to update liked books',
       }));
     }
   }
@@ -99,13 +99,13 @@ export class BookLikesService {
       localStorage.removeItem(this.STORAGE_KEY);
       return of({
         data: true,
-        success: true
+        success: true,
       }).pipe(delay(this.MOCK_DELAY));
     } catch (error) {
       return throwError(() => ({
         data: false,
         success: false,
-        error: 'Failed to clear liked books'
+        error: 'Failed to clear liked books',
       }));
     }
   }

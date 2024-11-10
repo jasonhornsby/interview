@@ -2,13 +2,21 @@ import { getMockBook } from '../../mocks/book.mock';
 import { getUniqueAuthors, publishedInYear } from './example1';
 
 describe('Book Utilities', () => {
-
   const author1 = getMockBook().author;
   const author2 = getMockBook().author;
 
-  const book1 = getMockBook({ datePublished: new Date('2020-01-01'), author: author1 });
-  const book2 = getMockBook({ datePublished: new Date('2021-01-01'), author: author2 });
-  const book3 = getMockBook({ datePublished: new Date('2020-05-15'), author: author1 });
+  const book1 = getMockBook({
+    datePublished: new Date('2020-01-01'),
+    author: author1,
+  });
+  const book2 = getMockBook({
+    datePublished: new Date('2021-01-01'),
+    author: author2,
+  });
+  const book3 = getMockBook({
+    datePublished: new Date('2020-05-15'),
+    author: author1,
+  });
 
   it('should filter books published in the specified year', () => {
     const books = [book1, book2, book3];
@@ -42,5 +50,4 @@ describe('Book Utilities', () => {
     expect(result.length).toBe(1);
     expect(result[0]).toBe(book1.author);
   });
-
 });

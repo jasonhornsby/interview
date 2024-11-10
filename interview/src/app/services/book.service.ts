@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable } from "rxjs";
-import { getLibraryDs, getStoreDs } from "../mocks/book.ds.mock";
-import { Book } from "../models/book";
+import { Observable } from 'rxjs';
+import { getLibraryDs, getStoreDs } from '../mocks/book.ds.mock';
+import { Book } from '../models/book';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BookService {
   libraryDs = getLibraryDs();

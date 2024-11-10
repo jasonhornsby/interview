@@ -3,17 +3,20 @@
 </mat-toolbar>
 
 <div class="wrapper">
-
   <div class="list">
     <mat-tab-group>
       <mat-tab label="Store">
         <div class="list-content">
-          <app-book-card *ngFor="let book of storeBooks" [book]="book"></app-book-card>
+          <app-book-card
+            *ngFor="let book of storeBooks"
+            [book]="book"></app-book-card>
         </div>
       </mat-tab>
       <mat-tab label="Library">
         <div class="list-content">
-        <app-book-card *ngFor="let book of libraryBooks" [book]="book"></app-book-card>
+          <app-book-card
+            *ngFor="let book of libraryBooks"
+            [book]="book"></app-book-card>
         </div>
       </mat-tab>
     </mat-tab-group>
@@ -25,10 +28,7 @@
         <mat-card-title>Liked books</mat-card-title>
         <mat-card-subtitle>My liked books</mat-card-subtitle>
       </mat-card-header>
-      <mat-card-content>
-        Missing
-      </mat-card-content>
+      <mat-card-content> Missing </mat-card-content>
     </mat-card>
   </div>
-
 </div>
