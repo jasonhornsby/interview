@@ -1,34 +1,43 @@
-<mat-toolbar>
-  <span>Book database</span>
-</mat-toolbar>
+<header>
+  <mat-toolbar role="banner">
+    <h1 class="heading">Book Database</h1>
+  </mat-toolbar>
+</header>
 
-<div class="wrapper">
-  <div class="list">
-    <mat-tab-group>
+<main class="layout">
+  <section class="layout__main">
+    <mat-tab-group aria-label="Book collections">
       <mat-tab label="Store">
-        <div class="list-content">
-          <app-book-card
-            *ngFor="let book of storeBooks"
-            [book]="book"></app-book-card>
-        </div>
+        <ng-container *ngTemplateOutlet="bookList; context: { books: storeBooks$ | async }">
+        </ng-container>
       </mat-tab>
       <mat-tab label="Library">
-        <div class="list-content">
-          <app-book-card
-            *ngFor="let book of libraryBooks"
-            [book]="book"></app-book-card>
-        </div>
+        <ng-container *ngTemplateOutlet="bookList; context: { books: libraryBooks$ | async }">
+        </ng-container>
       </mat-tab>
     </mat-tab-group>
-  </div>
+  </section>
 
-  <div class="sidebar">
+  <aside class="layout__sidebar">
     <mat-card>
       <mat-card-header>
-        <mat-card-title>Liked books</mat-card-title>
-        <mat-card-subtitle>My liked books</mat-card-subtitle>
+        <mat-card-title>Liked Books</mat-card-title>
+        <mat-card-subtitle>My personal collection</mat-card-subtitle>
       </mat-card-header>
-      <mat-card-content> Missing </mat-card-content>
+      <mat-card-content>
+        <!-- Add liked books content here -->
+      </mat-card-content>
     </mat-card>
+  </aside>
+</main>
+
+<!-- Reusable template for book lists -->
+<ng-template #bookList let-books="books">
+  <div class="book-grid" role="list">
+    <app-book-card
+      *ngFor="let book of books; trackBy: trackByBookId"
+      [book]="book"
+      role="listitem">
+    </app-book-card>
   </div>
-</div>
+</ng-template>
