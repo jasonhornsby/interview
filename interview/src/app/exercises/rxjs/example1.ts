@@ -50,7 +50,7 @@ export function combineBookSources(
 }
 
 /**
- * Processes a stream of individual books to emit arrays of unique young authors
+ * Processes a stream of individual books to emit arrays of unique young authors (age < 20)
  * at regular intervals.
  *
  * Requirements:
@@ -60,9 +60,6 @@ export function combineBookSources(
  * 4. Emit array of remaining unique authors every 2 seconds
  *
  * Implementation notes:
- * - Use bufferTime operator to collect books over 2-second intervals
- * - Filter authors before deduplication
- * - Use Map for efficient deduplication by author.id
  * - Empty time windows should emit empty arrays
  *
  * Example:
