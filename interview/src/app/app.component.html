@@ -8,11 +8,16 @@
   <section class="layout__main">
     <mat-tab-group aria-label="Book collections">
       <mat-tab label="Store">
-        <ng-container *ngTemplateOutlet="bookList; context: { books: storeBooks$ | async }">
+        <ng-container
+          *ngTemplateOutlet="bookList; context: { books: storeBooks$ | async }">
         </ng-container>
       </mat-tab>
       <mat-tab label="Library">
-        <ng-container *ngTemplateOutlet="bookList; context: { books: libraryBooks$ | async }">
+        <ng-container
+          *ngTemplateOutlet="
+            bookList;
+            context: { books: libraryBooks$ | async }
+          ">
         </ng-container>
       </mat-tab>
     </mat-tab-group>

@@ -1,6 +1,5 @@
 import { Book, Author } from '../../models/book';
 
-
 /**
  * Filters an array of books to return only those published in a specific year.
  *
@@ -16,10 +15,7 @@ import { Book, Author } from '../../models/book';
  * publishedInYear(books, 2020); // Returns [{ title: 'Book1', ... }]
  */
 export function publishedInYear(books: Book[], year: number): Book[] {
-  return books.filter(book => {
-    const publishedYear = book.datePublished.getFullYear();
-    return publishedYear === year;
-  });
+  throw new Error('Not implemented');
 }
 
 /**
@@ -37,14 +33,5 @@ export function publishedInYear(books: Book[], year: number): Book[] {
  * getUniqueAuthors(books); // Returns [{ id: '1', name: 'Author1' }]
  */
 export function getUniqueAuthors(books: Book[]): Author[] {
-  const authorMap = new Map<string, Author>();
-
-  books.forEach(book => {
-    const author = book.author;
-    if (!authorMap.has(author.id)) {
-      authorMap.set(author.id, author);
-    }
-  });
-
-  return Array.from(authorMap.values());
+  throw new Error('Not implemented');
 }
