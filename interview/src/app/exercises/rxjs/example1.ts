@@ -1,13 +1,4 @@
-import {
-  bufferTime,
-  combineLatest,
-  debounceTime,
-  distinctUntilChanged,
-  filter,
-  Observable,
-  withLatestFrom,
-} from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { Author, Book } from '../../models/book';
 
 /**
@@ -39,14 +30,7 @@ import { Author, Book } from '../../models/book';
 export function combineBookSources(
   ...sources: Observable<Book[]>[]
 ): Observable<Book[]> {
-  return combineLatest(sources).pipe(
-    map((booksArray: Book[][]) => {
-      const allBooks = booksArray.flat();
-      return allBooks.sort((a, b) =>
-        a.author.name.localeCompare(b.author.name)
-      );
-    })
-  );
+  throw new Error('Not implemented');
 }
 
 /**
@@ -79,25 +63,8 @@ export function combineBookSources(
  * @returns Observable<Author[]> - Stream emitting arrays of unique young authors every 2 seconds
  */
 export function getAuthors(books: Observable<Book>): Observable<Author[]> {
-  return books.pipe(
-    bufferTime(2000),
-    map(books => {
-      const authors = books
-        .map(b => b.author)
-        .filter(author => author.age < 20);
-
-      const map = new Map<string, Author>();
-      authors.forEach(author => {
-        if (!map.has(author.id)) {
-          map.set(author.id, author);
-        }
-      });
-
-      return Array.from(map.values());
-    })
-  );
+  throw new Error('Not implemented');
 }
-
 
 /**
  * Implements a search functionality that searches books by title and author name.
@@ -118,17 +85,5 @@ export function implementBookSearch(
   searchTerm$: Observable<string>,
   books$: Observable<Book[]>
 ): Observable<Book[]> {
-  return searchTerm$.pipe(
-    debounceTime(300),
-    map(term => term.trim().toLowerCase()),
-    filter(term => term.length >= 2),
-    distinctUntilChanged(),
-    withLatestFrom(books$),
-    map(([term, books]) =>
-      books.filter(book =>
-        book.name.toLowerCase().includes(term) ||
-        book.author.name.toLowerCase().includes(term)
-      )
-    )
-  );
+  throw new Error('Not implemented');
 }
