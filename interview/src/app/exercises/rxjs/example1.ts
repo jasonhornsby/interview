@@ -2,13 +2,37 @@ import { Observable } from 'rxjs';
 import { Author, Book } from '../../models/book';
 
 /**
+ * Transforms a stream of books into a stream of authors who are over 30 years old.
+ * 
+ * Requirements:
+ * - Input is an Observable of Book objects
+ * - Returns an Observable that emits Author objects
+ * - Authors are only emitted if their age is strictly greater than 30
+ * 
+ * Example:
+ * const books$ = of([
+ *   { name: 'Book1', author: { name: 'John', age: 35 } },
+ *   { name: 'Book2', author: { name: 'Jane', age: 28 } },
+ *   { name: 'Book3', author: { name: 'Bob', age: 42 } }
+ * ]);
+ * 
+ * toOldAuthors(books$).subscribe(author => console.log(author));
+ * // Output:
+ * // { name: 'John', age: 35 }
+ * // { name: 'Bob', age: 42 }
+ */
+export function toOldAuthors(books: Observable<Book>): Observable<Author> {
+  throw new Error('Not implemented');
+}
+
+/**
  * Combines multiple observable streams of book arrays into a single stream,
  * flattening the arrays and sorting the books by author name.
  *
  * Requirements:
  * 1. Combine multiple Observable<Book[]> sources into a single stream
  * 2. Flatten all book arrays into a single array
- * 3. Sort the combined array by author name alphabetically
+ * 3. Sort the combined array by book name
  *
  * Implementation notes:
  * - The flattening should handle any number of source observables
@@ -16,11 +40,11 @@ import { Author, Book } from '../../models/book';
  *
  * Example:
  * ```typescript
- * const source1$ = of([{ author: { name: 'Zoe' } }, { author: { name: 'Amy' } }]);
- * const source2$ = of([{ author: { name: 'Bob' } }]);
+ * const source1$ = of([{ name: 'Zoes Book', author: { name: 'Zoe' },... }, { name: 'Amys Book', author: { name: 'Amy' },... }]);
+ * const source2$ = of([{ name: 'Jons Book', author: { name: 'Jon' },... }, { name: 'Franks Book', author: { name: 'Frank' },... }]);
  *
  * combineBookSources(source1$, source2$).subscribe(books => {
- *   // books will be sorted: [Amy's book, Bob's book, Zoe's book]
+ *   // books will be sorted: [Amy's book, Bob's book, Zoe's book,...]
  * });
  * ```
  *
