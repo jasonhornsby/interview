@@ -2,26 +2,26 @@ import { Observable } from 'rxjs';
 import { Author, Book } from '../../models/book';
 
 /**
- * Transforms a stream of books into a stream of authors who are over 30 years old.
- * 
+ * Transform a stream of book into a stream of author who are over 30 years old.
+ *
  * Requirements:
- * - Input is an Observable of Book objects
- * - Returns an Observable that emits Author objects
+ * - Input is an Observable of Book object
+ * - Returns an Observable that emits Author object
  * - Authors are only emitted if their age is strictly greater than 30
- * 
+ *
  * Example:
- * const books$ = of([
+ * const book$ = of(
  *   { name: 'Book1', author: { name: 'John', age: 35 } },
  *   { name: 'Book2', author: { name: 'Jane', age: 28 } },
  *   { name: 'Book3', author: { name: 'Bob', age: 42 } }
- * ]);
- * 
- * toOldAuthors(books$).subscribe(author => console.log(author));
+ * );
+ *
+ * toOldAuthor(book$).subscribe(author => console.log(author));
  * // Output:
  * // { name: 'John', age: 35 }
  * // { name: 'Bob', age: 42 }
  */
-export function toOldAuthors(books: Observable<Book>): Observable<Author> {
+export function toOldAuthor(book: Observable<Book>): Observable<Author> {
   throw new Error('Not implemented');
 }
 
